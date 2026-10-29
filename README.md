@@ -1,19 +1,18 @@
-
-# E-commerce Web Application QA Assessment
+# SauceDemo E-commerce QA Assessment
 
 ## Overview
 
-A personal QA portfolio project assessing the SauceDemo e-commerce demo application through manual testing and browser automation.
+This is a personal QA portfolio project assessing the [SauceDemo](https://www.saucedemo.com/) e-commerce demonstration application through manual testing and browser automation.
 
-The project demonstrates test design, functional testing, regression testing, cross-browser execution, checkout validation, defect documentation and introductory Playwright automation.
+The project demonstrates practical skills in test design, functional testing, regression testing, cross-browser testing, checkout validation, defect documentation, and introductory test automation using Playwright and TypeScript.
 
-This is a practice project using a publicly available demo application, not commercial client work.
+This is an independent practice project using a publicly available demo application, not commercial client work.
 
 ## Application Under Test
 
-- Application: https://www.saucedemo.com/
-- Type: E-commerce demonstration application
-- Primary focus: Login, inventory, shopping cart and checkout
+- **Application:** [SauceDemo](https://www.saucedemo.com/)
+- **Application type:** E-commerce demo
+- **Test scope:** Login, inventory, shopping cart, and checkout
 
 ## Tools and Environment
 
@@ -22,99 +21,104 @@ This is a practice project using a publicly available demo application, not comm
 - npm 11.16.0
 - Playwright Test
 - TypeScript
-- Browsers: Chromium, Firefox and WebKit
+- Chromium, Firefox, and WebKit
 
 ## Automated Test Coverage
 
-The current suite contains four test cases:
+The suite contains four distinct test scenarios:
 
-1. Valid login reaches the inventory page.
-2. Invalid credentials are rejected with an error message.
-3. The selected backpack appears in the cart with the expected price.
-4. Checkout verifies the product, subtotal, tax, total and order confirmation.
+| Test scenario | What it verifies |
+|---|---|
+| Valid login | A standard user can log in and reach the inventory page. |
+| Invalid login | Invalid credentials produce an error and prevent login. |
+| Shopping cart | A selected backpack can be added to the cart and verified. |
+| Checkout | The user can complete checkout and verify the order summary and confirmation. |
 
-The tests use a reusable login helper and Playwright assertions to verify expected outcomes.
+The suite runs across three browser projects: Chromium, Firefox, and WebKit. This produces 12 browser-specific test executions when all four scenarios run in each browser.
 
-## Latest Recorded Automated Test Run
+The tests use Playwright locators and assertions to interact with the application and verify expected outcomes.
+
+## Automated Test Results
+
+The most recently recorded full-suite run completed with **12 passing test executions**.
 
 Command:
 
-`npx playwright test`
+```bash
+npx playwright test
+```
 
-Result: 12 passed.
+During earlier testing, a checkout navigation failure occurred in WebKit. The test passed when rerun independently and on a subsequent full-suite run. The root cause has not been established, so further stability testing is appropriate.
 
-The four test cases were executed across three browser projects: Chromium, Firefox and WebKit.
-
-One earlier full-suite run reported a checkout navigation failure in WebKit. The test passed when rerun independently and on the subsequent full-suite run. The cause has not yet been established, so further stability testing is appropriate.
+Test results should be updated whenever a new full-suite run changes the recorded outcome.
 
 ## How to Run the Tests
 
-Install the project dependencies:
+### 1. Install dependencies
 
-`npm ci`
+```bash
+npm ci
+```
 
-Install the required Playwright browsers:
+### 2. Install Playwright browsers
 
-`npx playwright install`
+```bash
+npx playwright install
+```
 
-Run the full test suite:
+### 3. Run the test suite
 
-`npx playwright test`
+```bash
+npx playwright test
+```
 
-Run the HTML report:
+### 4. View the HTML report
 
-`npx playwright show-report`
+After running the tests, open the report with:
+
+```bash
+npx playwright show-report
+```
 
 ## Manual Testing
 
-Manual testing has covered:
+Manual testing has covered the following areas:
 
 - Login validation
 - Inventory display and product sorting
 - Cart addition and removal
 - Checkout validation and price calculations
-- Keyboard navigation and visible focus
-- UI observations at desktop and mobile-sized viewports
+- Keyboard navigation and visible focus indicators
+- User interface observations at desktop and mobile-sized viewports
 
-Manual execution records and defect documentation will be maintained alongside the automated suite.
+Execution records, requirements traceability, and defect documentation are maintained alongside the automated tests.
 
 ## Findings and Limitations
 
-A reproducible keyboard-focus concern was observed on the Login button and product sorting control. The finding is documented as SD-BUG-001; screenshot evidence is still to be added if not yet captured.
+### SD-BUG-001: Keyboard Focus Indicator
 
-A large vertical gap between product descriptions and prices was also observed at a mobile-sized viewport. Without an approved design reference, this remains an observation rather than a confirmed defect.
+The keyboard focus indicator was observed to be difficult to distinguish on the Login button and product sorting control. The finding is documented as SD-BUG-001. Screenshot evidence remains to be added.
 
-The assessment is limited to the tested workflows, browsers and viewports. It is not a comprehensive security, performance or accessibility audit.
+The concern matters because keyboard users should be able to identify which interactive element currently has focus.
 
-## Project Status
+### Mobile Viewport Observation
 
-The initial automated regression suite is working. Further work will focus on evidence management, test stability, manual-test traceability and portfolio documentation.
+A large vertical gap between product descriptions and prices was observed at a mobile-sized viewport. Without an approved design reference or defined spacing requirement, this remains a UI observation rather than a confirmed defect.
 
+### Testing Limitations
+
+- Not every manually tested workflow has an automated regression test.
+- The cause of the earlier WebKit checkout navigation failure remains undetermined.
+- Security, performance, and comprehensive accessibility testing have not been completed.
+- Results apply only to the tested workflows, browsers, and viewports; they do not represent a complete assessment of the application.
 
 ## QA Documentation
 
-The supporting documents for this assessment are available below.
+- [Manual Test Execution Log](Docs/manual-testing/execution-log.md)
+- [Requirements Traceability Matrix](Docs/manual-testing/traceability-matrix.md)
+- [Keyboard Focus Defect Report — SD-BUG-001](Docs/defects/SD-BUG-001.md)
+- [Playwright Automated Test Suite](tests/saucedemo-flows.spec.ts)
 
-- [Manual Test Execution Log](docs/manual-testing/execution-log.md)
-- [Requirements Traceability Matrix](docs/manual-testing/traceability-matrix.md)
-- [Keyboard Focus Defect Report — SD-BUG-001](docs/defects/SD-BUG-001.md)
-- [Automated Test Suite](tests/saucedemo-flows.spec.ts)
+## Project Status
 
-## Latest Automated Test Results
-
-The latest complete test run reported 12 passed executions across Chromium, Firefox and WebKit.
-
-The suite contains four distinct test cases covering:
-- Valid login
-- Rejected login with invalid credentials
-- Adding and verifying a product in the cart
-- Completing checkout and verifying the order summary
-
-An earlier full-suite run experienced a WebKit checkout navigation failure. The failure was not reproduced in the isolated rerun or the subsequent full run. Its cause remains undetermined.
-
-## Current Limitations
-
-- Not every manually tested workflow has an automated regression test.
-- The keyboard-focus concern has been reproduced manually; screenshot evidence is still pending if not captured.
-- The project is a practice assessment of a demo application, not commercial client work.
-- Security, performance and comprehensive accessibility testing have not been completed.
+The initial automated regression suite is implemented and has recorded a successful full run across three browser projects. Further improvements will focus on evidence management, test stability, manual-test traceability, and expanding automated coverage.
