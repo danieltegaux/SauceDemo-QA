@@ -2,17 +2,17 @@
 
 ## Overview
 
-This is a personal QA portfolio project assessing the [SauceDemo](https://www.saucedemo.com/) e-commerce demonstration application through manual testing and browser automation.
+This is an independent QA portfolio project assessing the [SauceDemo](https://www.saucedemo.com/) e-commerce demonstration application through manual testing and browser automation.
 
 The project demonstrates practical skills in test design, functional testing, regression testing, cross-browser testing, checkout validation, defect documentation, and introductory test automation using Playwright and TypeScript.
 
-This is an independent practice project using a publicly available demo application, not commercial client work.
+This is a self-directed practice project using a publicly available demo application, not commercial client work.
 
 ## Application Under Test
 
 - **Application:** [SauceDemo](https://www.saucedemo.com/)
-- **Application type:** E-commerce demo
-- **Test scope:** Login, inventory, shopping cart, and checkout
+- **Application type:** E-commerce demonstration application
+- **Test scope:** Login, inventory, product sorting, shopping cart, and checkout
 
 ## Tools and Environment
 
@@ -31,26 +31,26 @@ The suite contains four distinct test scenarios:
 |---|---|
 | Valid login | A standard user can log in and reach the inventory page. |
 | Invalid login | Invalid credentials produce an error and prevent login. |
-| Shopping cart | A selected backpack can be added to the cart and verified. |
-| Checkout | The user can complete checkout and verify the order summary and confirmation. |
+| Shopping cart | A standard user can add the backpack to the cart and verify the selected item. |
+| Checkout | A user can complete checkout and verify the order summary and confirmation. |
 
-The suite runs across three browser projects: Chromium, Firefox, and WebKit. This produces 12 browser-specific test executions when all four scenarios run in each browser.
+The suite runs across three browser projects: Chromium, Firefox, and WebKit. When all four scenarios run in each browser, the suite produces 12 browser-specific test executions.
 
 The tests use Playwright locators and assertions to interact with the application and verify expected outcomes.
 
 ## Automated Test Results
 
-The most recently recorded full-suite run completed with **12 passing test executions**.
+The latest full-suite run, performed on 29 October 2026, completed with **12 passing test executions in 23.2 seconds**.
 
-Command:
+Run the suite with:
 
 ```bash
 npx playwright test
 ```
 
-During earlier testing, a checkout navigation failure occurred in WebKit. The test passed when rerun independently and on a subsequent full-suite run. The root cause has not been established, so further stability testing is appropriate.
+During earlier testing, a checkout navigation failure occurred in WebKit. The test passed when rerun independently and on a subsequent full-suite run. The root cause has not been established, so the earlier failure is documented as an unresolved stability observation rather than a confirmed application defect.
 
-Test results should be updated whenever a new full-suite run changes the recorded outcome.
+Test results should be updated if a future full-suite run changes the recorded outcome.
 
 ## How to Run the Tests
 
@@ -97,7 +97,13 @@ Execution records, requirements traceability, and defect documentation are maint
 
 ### SD-BUG-001: Keyboard Focus Indicator
 
-The keyboard focus indicator was observed to be difficult to distinguish on the Login button and product sorting control. The finding is documented as SD-BUG-001. Screenshot evidence remains to be added.
+The keyboard focus indicator was observed to be difficult to distinguish on the Login button and product sorting control. The finding is documented in SD-BUG-001, with screenshot evidence included in the repository.
+
+Evidence:
+
+- [Login button focus screenshot](Docs/defects/Evidence/SD-BUG-001-login-focus.png)
+- [Product sorting focus screenshot](Docs/defects/Evidence/SD-BUG-001-sorting-focus.png)
+- [SD-BUG-001 defect report](Docs/defects/SD-BUG-001.md)
 
 The concern matters because keyboard users should be able to identify which interactive element currently has focus.
 
@@ -110,7 +116,8 @@ A large vertical gap between product descriptions and prices was observed at a m
 - Not every manually tested workflow has an automated regression test.
 - The cause of the earlier WebKit checkout navigation failure remains undetermined.
 - Security, performance, and comprehensive accessibility testing have not been completed.
-- Results apply only to the tested workflows, browsers, and viewports; they do not represent a complete assessment of the application.
+- Results apply only to the tested workflows, browsers, and viewports. They do not represent a complete assessment of the application.
+- The project uses a publicly available demonstration application and does not represent commercial client experience.
 
 ## QA Documentation
 
@@ -121,4 +128,6 @@ A large vertical gap between product descriptions and prices was observed at a m
 
 ## Project Status
 
-The initial automated regression suite is implemented and has recorded a successful full run across three browser projects. Further improvements will focus on evidence management, test stability, manual-test traceability, and expanding automated coverage.
+The initial QA portfolio project is ready to share for junior QA and software testing applications. The automated suite contains four scenarios across Chromium, Firefox, and WebKit, with all 12 executions passing in the latest recorded full-suite run. Manual testing records, requirements traceability, and the SD-BUG-001 defect report include supporting documentation and screenshot evidence.
+
+The project demonstrates a practical testing workflow while documenting unresolved observations and the limits of its coverage. Further work should be driven by a specific job requirement or a demonstrated skills gap rather than unnecessary expansion of the existing test suite.
