@@ -49,7 +49,7 @@ Keyboard users may have difficulty identifying their current position on the pag
 
 ## Status
 
-Open — reproducible. Screenshot evidence is pending if not yet captured.
+Open — reproducible. Screenshot evidence is attached below.
 
 ## Evidence
 
@@ -68,12 +68,3 @@ Open — reproducible. Screenshot evidence is pending if not yet captured.
 
 This report describes the observed behaviour. It does not claim that a complete accessibility-standard assessment has been performed.
 
-## Evidence
-
-### Login button
-
-![Keyboard focus on the Login button](Evidence/SD-BUG-001-login-focus.png)
-
-### Product sorting dropdown
-
-![Keyboard focus on the product sorting dropdown](Evidence/SD-BUG-001-sorting-focus.png)
