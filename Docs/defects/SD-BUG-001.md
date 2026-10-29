@@ -53,9 +53,17 @@ Open — reproducible. Screenshot evidence is pending if not yet captured.
 
 ## Evidence
 
-- Screenshot: Pending.
-- Manual execution log: `docs/manual-testing/execution-log.md`
+### Login button focus
 
+![Keyboard focus on the Login button](Evidence/SD-BUG-001-login-focus.png)
+
+### Product sorting dropdown focus
+
+![Keyboard focus on the product sorting dropdown](Evidence/SD-BUG-001-sorting-focus.png)
+
+### Related manual execution log
+
+[Manual test execution log](../manual-testing/execution-log.md)
 ## Notes
 
 This report describes the observed behaviour. It does not claim that a complete accessibility-standard assessment has been performed.
